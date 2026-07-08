@@ -1,4 +1,4 @@
-/* Configuraciones Especiales para Iconos y animaciones industriales */
+/* Iconos Vectoriales de Google Material Design */
 .material-symbols-outlined {
   font-variation-settings:
     "FILL" 0,
@@ -7,7 +7,7 @@
     "opsz" 24;
 }
 
-/* Corte geométrico para simular una compuerta metálica física de protección */
+/* Corte poligonal para la compuerta de protección física */
 .scram-guard {
   clip-path: polygon(
     0% 15%,
@@ -25,7 +25,7 @@
   );
 }
 
-/* Animación crítica intermitente para situaciones de alerta */
+/* Animación de Parpadeo de Alerta Roja */
 .strobe-critical {
   animation: strobe 1s infinite;
 }
@@ -43,12 +43,12 @@
   }
 }
 
-/* Transición suave para simular llenado o vaciado hidráulico real */
+/* Transición fluida para simular movimientos de nivel hidráulico */
 .liquid-fill {
-  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Fondo con patrón de rejilla técnica e industrial */
+/* Fondo de cuadricula técnica industrial */
 .industrial-grid {
   background-image: radial-gradient(
     circle,

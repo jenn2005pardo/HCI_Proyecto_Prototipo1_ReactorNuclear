@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>RÉPLICA SECTOR-7 | Consola de Control del Reactor Principal</title>
+    <title>REPLICA SECTOR-7 | Consola de Control del Reactor Principal</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -142,19 +142,13 @@
         <button
           class="w-full bg-secondary-container text-on-secondary-container border-l-4 border-secondary p-inner-padding flex items-center gap-2 font-label-caps text-label-caps transition-transform duration-75 scale-95"
         >
-          <span
-            class="material-symbols-outlined"
-            data-icon="precision_manufacturing"
-            >precision_manufacturing</span
-          >
+          <span class="material-symbols-outlined">precision_manufacturing</span>
           MONITOREO DEL NÚCLEO
         </button>
         <button
           class="w-full text-on-surface-variant p-inner-padding flex items-center gap-2 font-label-caps text-label-caps hover:bg-surface-container-high hover:text-on-surface transition-colors"
         >
-          <span class="material-symbols-outlined" data-icon="shield"
-            >shield</span
-          >
+          <span class="material-symbols-outlined">shield</span>
           PROTOCOLOS DE SEGURIDAD
         </button>
       </nav>
@@ -162,18 +156,14 @@
         <button
           class="w-full text-on-surface-variant p-inner-padding flex items-center gap-2 font-label-caps text-label-caps hover:bg-surface-container-high hover:text-on-surface transition-colors"
         >
-          <span class="material-symbols-outlined" data-icon="analytics"
-            >analytics</span
-          >
+          <span class="material-symbols-outlined">analytics</span>
           DIAGNÓSTICOS
         </button>
         <div class="mt-4 flex items-center gap-3 px-2">
           <div
             class="w-8 h-8 bg-surface-container-highest rounded border border-outline-variant flex items-center justify-center"
           >
-            <span class="material-symbols-outlined text-sm" data-icon="person"
-              >person</span
-            >
+            <span class="material-symbols-outlined text-sm">person</span>
           </div>
           <div class="flex flex-col">
             <span
@@ -213,25 +203,27 @@
             <span
               id="estado-texto"
               class="font-label-caps text-label-caps text-primary"
-              >SISTEMA EN LÍNEA</span
+              >SISTEMA EN RIESGO</span
             >
           </div>
           <div class="h-4 w-px bg-outline-variant"></div>
-          <div class="flex items-center gap-2 flex-1 max-w-xs">
+          <div class="flex items-center gap-2 flex-1 max-w-sm">
             <span
               class="font-label-caps text-[11px] text-error font-bold whitespace-nowrap"
-              >TIEMPO CRÍTICO:</span
+              >TIEMPO HASTA DETONACIÓN:</span
             >
             <div
               class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden relative border border-outline-variant"
             >
               <div
                 id="barra-tiempo"
-                class="absolute left-0 top-0 h-full bg-error transition-all duration-1000"
+                class="absolute left-0 top-0 h-full bg-error transition-all duration-300"
                 style="width: 100%"
               ></div>
             </div>
-            <span id="texto-tiempo" class="font-data-md text-error font-bold"
+            <span
+              id="texto-tiempo"
+              class="font-data-md text-error font-bold min-w-[32px] text-right"
               >30s</span
             >
           </div>
@@ -240,15 +232,6 @@
           <span class="font-label-caps text-label-caps text-on-surface-variant"
             >ESTEPAS_SIBERIA</span
           >
-          <div class="flex items-center gap-4">
-            <button
-              class="text-on-surface-variant hover:bg-surface-container-highest transition-colors p-1 rounded"
-              title="Simular Reinicio"
-              onclick="reiniciarSimulacion()"
-            >
-              <span class="material-symbols-outlined">refresh</span>
-            </button>
-          </div>
         </div>
       </header>
 
@@ -261,7 +244,7 @@
           <div class="flex justify-between items-start mb-2">
             <span
               class="font-label-caps text-label-caps text-on-surface-variant"
-              >TEMP. NÚCLEO DEL REACTOR</span
+              >TEMP. AGUA REFRIGERANTE</span
             >
             <span class="material-symbols-outlined text-secondary"
               >device_thermostat</span
@@ -278,7 +261,7 @@
               class="w-full h-2 bg-surface-container-highest mt-6 relative rounded-full overflow-hidden"
             >
               <div
-                class="absolute left-0 top-0 h-full bg-secondary transition-all duration-1000"
+                class="absolute left-0 top-0 h-full bg-secondary transition-all duration-500"
                 id="temp-bar"
                 style="width: 77%"
               ></div>
@@ -290,7 +273,7 @@
               class="w-full flex justify-between mt-2 font-label-caps text-[10px] text-on-surface-variant"
             >
               <span>0°C</span>
-              <span class="text-error font-bold">ALERTA: >400°C</span>
+              <span class="text-error font-bold">ALERTA CRÍTICA: >400°C</span>
               <span>500°C</span>
             </div>
           </div>
@@ -302,15 +285,17 @@
           <div class="flex justify-between items-start mb-2">
             <span
               class="font-label-caps text-label-caps text-on-surface-variant"
-              >NIVEL DE AGUA REFRIGERANTE</span
+              >VOLUMEN DE AGUA EN SISTEMA</span
             >
-            <span class="material-symbols-outlined text-tertiary"
+            <span
+              id="icono-agua"
+              class="material-symbols-outlined text-tertiary"
               >water_drop</span
             >
           </div>
           <div class="flex-1 flex gap-4">
             <div
-              class="w-24 bg-surface-container-lowest border-2 border-outline-variant relative flex flex-col justify-end overflow-hidden p-1"
+              class="w-20 bg-surface-container-lowest border-2 border-outline-variant relative flex flex-col justify-end overflow-hidden p-1"
             >
               <div
                 class="liquid-fill bg-tertiary-container w-full"
@@ -337,7 +322,7 @@
               <div>
                 <span
                   class="font-label-caps text-on-surface-variant text-[10px]"
-                  >MÉTRICA ACTUAL</span
+                  >NIVEL ACTUAL</span
                 >
                 <div
                   class="font-data-lg text-data-lg text-tertiary"
@@ -345,17 +330,22 @@
                 >
                   65%
                 </div>
+                <span
+                  id="badge-presion"
+                  class="inline-block mt-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant"
+                  >PRESIÓN BAJA</span
+                >
               </div>
               <div class="space-y-2">
                 <button
                   class="w-full py-2 border border-outline-variant font-label-caps text-[10px] hover:bg-surface-container-high active:bg-surface-container-highest transition-all"
-                  onclick="actualizarRefrigerante(-10)"
+                  onclick="desfogarAguaCaliente()"
                 >
                   DESFOGAR AGUA CALIENTE
                 </button>
                 <button
                   class="w-full py-2 bg-tertiary text-on-tertiary font-label-caps text-[10px] hover:opacity-90 active:scale-95 transition-all"
-                  onclick="actualizarRefrigerante(10)"
+                  onclick="ingresarAguaFria()"
                 >
                   INGRESAR AGUA FRÍA
                 </button>
@@ -370,7 +360,7 @@
           <div class="flex justify-between items-start mb-2">
             <span
               class="font-label-caps text-label-caps text-on-surface-variant"
-              >POTENCIA DEL SISTEMA</span
+              >POTENCIA ELÉCTRICA NET_MWe</span
             >
             <span class="material-symbols-outlined text-primary">bolt</span>
           </div>
@@ -535,7 +525,7 @@
               id="texto-alerta"
               class="font-label-caps text-[12px] leading-relaxed font-bold"
             >
-              ¡EVACUACIÓN DE EMERGENCY! EL NÚCLEO ESTÁ SUBIENDO DE TEMPERATURA.
+              ¡EVACUACIÓN DE EMERGENCIA! EL NÚCLEO ESTÁ SUBIENDO DE TEMPERATURA.
               INICIE EL PROTOCOLO DE SECUENCIA DE INMEDIATO.
             </p>
             <div
