@@ -1,0 +1,622 @@
+<!doctype html>
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>RÉPLICA SECTOR-7 | Consola de Control del Reactor Principal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error": "#690005",
+              "on-primary": "#68000a",
+              "surface-container-high": "#232a3a",
+              "on-tertiary-fixed-variant": "#004395",
+              "on-surface-variant": "#e4beba",
+              background: "#0c1322",
+              outline: "#ab8986",
+              "on-tertiary-fixed": "#001a42",
+              "surface-bright": "#323949",
+              "surface-variant": "#2e3545",
+              "surface-tint": "#ffb3ad",
+              "on-tertiary": "#002e6a",
+              "surface-container-highest": "#2e3545",
+              "on-primary-fixed": "#410004",
+              "surface-dim": "#0c1322",
+              primary: "#ffb3ad",
+              "surface-container-lowest": "#070e1d",
+              "tertiary-container": "#4d8eff",
+              "on-primary-container": "#5c0008",
+              "primary-fixed-dim": "#ffb3ad",
+              "inverse-on-surface": "#293040",
+              "on-secondary-fixed-variant": "#653e00",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-surface": "#dce2f7",
+              "secondary-fixed": "#ffddb8",
+              "outline-variant": "#5b403e",
+              tertiary: "#adc6ff",
+              "error-container": "#93000a",
+              "on-error-container": "#ffdad6",
+              "on-tertiary-container": "#00285d",
+              "surface-container": "#191f2f",
+              "on-primary-fixed-variant": "#930013",
+              "secondary-container": "#ee9800",
+              error: "#ffb4ab",
+              "inverse-primary": "#b91a24",
+              "primary-fixed": "#ffdad7",
+              "on-background": "#dce2f7",
+              "surface-container-low": "#141b2b",
+              "on-secondary": "#472a00",
+              surface: "#0c1322",
+              "primary-container": "#ff5451",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-container": "#5b3800",
+              secondary: "#ffb95f",
+              "secondary-fixed-dim": "#ffb95f",
+              "inverse-surface": "#dce2f7",
+              "on-secondary-fixed": "#2a1700",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "grid-cols": "12",
+              "module-margin": "24px",
+              "panel-gap": "2px",
+              "inner-padding": "16px",
+              "touch-target": "48px",
+            },
+            fontFamily: {
+              "headline-sm": ["Inter"],
+              "label-caps": ["JetBrains Mono"],
+              "body-md": ["Inter"],
+              "display-xl": ["Inter"],
+              "data-lg": ["JetBrains Mono"],
+              "headline-lg": ["Inter"],
+              "data-md": ["JetBrains Mono"],
+            },
+            fontSize: {
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", fontWeight: "700" },
+              ],
+              "label-caps": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "display-xl": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "data-lg": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+              "headline-lg": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "700" },
+              ],
+              "data-md": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary industrial-grid overflow-hidden h-screen flex"
+  >
+    <aside
+      class="fixed left-0 top-0 h-full flex flex-col z-40 border-r-2 border-outline-variant bg-surface-container-low w-64"
+    >
+      <div
+        class="p-inner-padding flex flex-col items-start gap-2 border-b border-outline-variant mb-4"
+      >
+        <span
+          class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-tighter"
+          >PANEL DE CONTROL</span
+        >
+        <span class="font-label-caps text-label-caps text-secondary opacity-70"
+          >OPERACIONES NUCLEARES</span
+        >
+      </div>
+      <nav class="flex-1 space-y-panel-gap">
+        <button
+          class="w-full bg-secondary-container text-on-secondary-container border-l-4 border-secondary p-inner-padding flex items-center gap-2 font-label-caps text-label-caps transition-transform duration-75 scale-95"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="precision_manufacturing"
+            >precision_manufacturing</span
+          >
+          MONITOREO DEL NÚCLEO
+        </button>
+        <button
+          class="w-full text-on-surface-variant p-inner-padding flex items-center gap-2 font-label-caps text-label-caps hover:bg-surface-container-high hover:text-on-surface transition-colors"
+        >
+          <span class="material-symbols-outlined" data-icon="shield"
+            >shield</span
+          >
+          PROTOCOLOS DE SEGURIDAD
+        </button>
+      </nav>
+      <div class="mt-auto p-inner-padding border-t border-outline-variant">
+        <button
+          class="w-full text-on-surface-variant p-inner-padding flex items-center gap-2 font-label-caps text-label-caps hover:bg-surface-container-high hover:text-on-surface transition-colors"
+        >
+          <span class="material-symbols-outlined" data-icon="analytics"
+            >analytics</span
+          >
+          DIAGNÓSTICOS
+        </button>
+        <div class="mt-4 flex items-center gap-3 px-2">
+          <div
+            class="w-8 h-8 bg-surface-container-highest rounded border border-outline-variant flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-sm" data-icon="person"
+              >person</span
+            >
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-label-caps text-[10px] leading-tight text-on-surface"
+              >BARRENDERO_HEROE</span
+            >
+            <span
+              class="font-label-caps text-[8px] leading-tight text-secondary"
+              >AUTORIZACIÓN NIVEL 4</span
+            >
+          </div>
+        </div>
+        <button
+          onclick="intentarScramDirecto()"
+          class="w-full mt-4 py-3 bg-error text-on-error font-label-caps text-label-caps font-bold border-2 border-on-error hover:opacity-90 transition-opacity"
+        >
+          SISTEMA SCRAM
+        </button>
+      </div>
+    </aside>
+
+    <main class="flex-1 ml-64 flex flex-col h-full bg-surface-dim">
+      <header
+        class="flex justify-between items-center w-full px-inner-padding h-touch-target bg-surface-container-lowest border-b border-outline-variant z-30"
+      >
+        <div class="flex items-center gap-4 flex-1">
+          <span
+            class="font-label-caps text-label-caps font-bold tracking-widest text-primary"
+            >RÉPLICA_SECTOR-7</span
+          >
+          <div class="h-4 w-px bg-outline-variant"></div>
+          <div class="flex items-center gap-2">
+            <span
+              id="estado-ping"
+              class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]"
+            ></span>
+            <span
+              id="estado-texto"
+              class="font-label-caps text-label-caps text-primary"
+              >SISTEMA EN LÍNEA</span
+            >
+          </div>
+          <div class="h-4 w-px bg-outline-variant"></div>
+          <div class="flex items-center gap-2 flex-1 max-w-xs">
+            <span
+              class="font-label-caps text-[11px] text-error font-bold whitespace-nowrap"
+              >TIEMPO CRÍTICO:</span
+            >
+            <div
+              class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden relative border border-outline-variant"
+            >
+              <div
+                id="barra-tiempo"
+                class="absolute left-0 top-0 h-full bg-error transition-all duration-1000"
+                style="width: 100%"
+              ></div>
+            </div>
+            <span id="texto-tiempo" class="font-data-md text-error font-bold"
+              >30s</span
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="font-label-caps text-label-caps text-on-surface-variant"
+            >ESTEPAS_SIBERIA</span
+          >
+          <div class="flex items-center gap-4">
+            <button
+              class="text-on-surface-variant hover:bg-surface-container-highest transition-colors p-1 rounded"
+              title="Simular Reinicio"
+              onclick="reiniciarSimulacion()"
+            >
+              <span class="material-symbols-outlined">refresh</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div
+        class="flex-1 p-inner-padding grid grid-cols-12 grid-rows-6 gap-panel-gap overflow-hidden"
+      >
+        <section
+          class="col-span-4 row-span-2 bg-surface-container-low border border-outline-variant p-4 flex flex-col relative overflow-hidden"
+        >
+          <div class="flex justify-between items-start mb-2">
+            <span
+              class="font-label-caps text-label-caps text-on-surface-variant"
+              >TEMP. NÚCLEO DEL REACTOR</span
+            >
+            <span class="material-symbols-outlined text-secondary"
+              >device_thermostat</span
+            >
+          </div>
+          <div class="flex-1 flex flex-col justify-center items-center">
+            <div
+              class="text-secondary font-data-lg text-display-xl tracking-tighter leading-none"
+              id="temp-display"
+            >
+              385°C
+            </div>
+            <div
+              class="w-full h-2 bg-surface-container-highest mt-6 relative rounded-full overflow-hidden"
+            >
+              <div
+                class="absolute left-0 top-0 h-full bg-secondary transition-all duration-1000"
+                id="temp-bar"
+                style="width: 77%"
+              ></div>
+              <div
+                class="absolute right-[20%] top-0 h-full w-0.5 bg-error"
+              ></div>
+            </div>
+            <div
+              class="w-full flex justify-between mt-2 font-label-caps text-[10px] text-on-surface-variant"
+            >
+              <span>0°C</span>
+              <span class="text-error font-bold">ALERTA: >400°C</span>
+              <span>500°C</span>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="col-span-4 row-span-2 bg-surface-container-low border border-outline-variant p-4 flex flex-col"
+        >
+          <div class="flex justify-between items-start mb-2">
+            <span
+              class="font-label-caps text-label-caps text-on-surface-variant"
+              >NIVEL DE AGUA REFRIGERANTE</span
+            >
+            <span class="material-symbols-outlined text-tertiary"
+              >water_drop</span
+            >
+          </div>
+          <div class="flex-1 flex gap-4">
+            <div
+              class="w-24 bg-surface-container-lowest border-2 border-outline-variant relative flex flex-col justify-end overflow-hidden p-1"
+            >
+              <div
+                class="liquid-fill bg-tertiary-container w-full"
+                id="coolant-fill"
+                style="height: 65%"
+              >
+                <div class="w-full h-2 bg-white/20 animate-pulse"></div>
+              </div>
+              <div
+                class="absolute inset-0 flex flex-col justify-between py-2 items-center pointer-events-none"
+              >
+                <span class="text-[8px] font-label-caps text-on-background/50"
+                  >100%</span
+                >
+                <span class="text-[8px] font-label-caps text-on-background/50"
+                  >50%</span
+                >
+                <span class="text-[8px] font-label-caps text-on-background/50"
+                  >0%</span
+                >
+              </div>
+            </div>
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <span
+                  class="font-label-caps text-on-surface-variant text-[10px]"
+                  >MÉTRICA ACTUAL</span
+                >
+                <div
+                  class="font-data-lg text-data-lg text-tertiary"
+                  id="coolant-val"
+                >
+                  65%
+                </div>
+              </div>
+              <div class="space-y-2">
+                <button
+                  class="w-full py-2 border border-outline-variant font-label-caps text-[10px] hover:bg-surface-container-high active:bg-surface-container-highest transition-all"
+                  onclick="actualizarRefrigerante(-10)"
+                >
+                  DESFOGAR AGUA CALIENTE
+                </button>
+                <button
+                  class="w-full py-2 bg-tertiary text-on-tertiary font-label-caps text-[10px] hover:opacity-90 active:scale-95 transition-all"
+                  onclick="actualizarRefrigerante(10)"
+                >
+                  INGRESAR AGUA FRÍA
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="col-span-4 row-span-2 bg-surface-container-low border border-outline-variant p-4 flex flex-col"
+        >
+          <div class="flex justify-between items-start mb-2">
+            <span
+              class="font-label-caps text-label-caps text-on-surface-variant"
+              >POTENCIA DEL SISTEMA</span
+            >
+            <span class="material-symbols-outlined text-primary">bolt</span>
+          </div>
+          <div class="flex-1 flex flex-col justify-center items-center">
+            <span
+              id="mwe-display"
+              class="font-data-lg text-display-xl text-primary tracking-tight"
+              >1,193</span
+            >
+            <span
+              class="font-label-caps text-primary/70 text-center text-[11px]"
+              >MEGAWATIOS ELÉCTRICOS (MWe)</span
+            >
+            <div id="mwe-bars" class="mt-4 flex gap-1">
+              <div class="w-3 h-8 bg-primary-container animate-pulse"></div>
+              <div class="w-3 h-8 bg-primary-container animate-pulse"></div>
+              <div class="w-3 h-8 bg-primary-container animate-pulse"></div>
+              <div class="w-3 h-8 bg-primary-container opacity-40"></div>
+              <div class="w-3 h-8 bg-primary-container opacity-20"></div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="col-span-8 row-span-4 bg-surface-container-low border border-outline-variant flex flex-col"
+        >
+          <div
+            class="p-inner-padding border-b border-outline-variant bg-surface-container-low flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary"
+                >format_list_numbered</span
+              >
+              <span class="font-label-caps text-label-caps"
+                >SECUENCIA OBLIGATORIA DE APAGADO</span
+              >
+            </div>
+            <span
+              id="estado-secuencia"
+              class="font-label-caps text-[10px] text-secondary font-bold animate-pulse"
+              >ESTADO: INICIAR PASO 1</span
+            >
+          </div>
+          <div class="flex-1 p-inner-padding grid grid-cols-2 gap-4">
+            <div
+              class="shutdown-step border-2 border-secondary bg-surface-container-highest p-4 relative overflow-hidden transition-all duration-300"
+              id="step-1"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <span
+                  class="step-badge bg-secondary text-on-secondary px-2 py-1 font-label-caps text-[10px]"
+                  >PASO 01</span
+                >
+                <span class="step-icon material-symbols-outlined text-secondary"
+                  >mode_fan</span
+                >
+              </div>
+              <h4 class="font-label-caps text-[16px] font-bold mb-2">
+                1. DETENER TURBINAS
+              </h4>
+              <button
+                class="w-full py-2 bg-secondary text-on-secondary font-bold font-label-caps text-[12px] hover:brightness-110 active:scale-[0.98] transition-all"
+                onclick="ejecutarPaso(1)"
+              >
+                FINALIZAR TURBINAS
+              </button>
+            </div>
+
+            <div
+              class="shutdown-step border-2 border-outline-variant bg-surface-container-lowest p-4 relative transition-all duration-300"
+              id="step-2"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <span
+                  class="step-badge bg-outline-variant text-on-surface-variant px-2 py-1 font-label-caps text-[10px]"
+                  >PASO 02</span
+                >
+                <span
+                  class="step-icon material-symbols-outlined text-on-surface-variant"
+                  >air</span
+                >
+              </div>
+              <h4 class="font-label-caps text-[16px] font-bold mb-2">
+                2. VENTILAR CONTENIDO
+              </h4>
+              <button
+                class="w-full py-2 bg-surface-variant text-on-surface border border-outline font-bold font-label-caps text-[12px] hover:bg-surface-container-high transition-all"
+                onclick="ejecutarPaso(2)"
+              >
+                VENTILAR RADIACIÓN
+              </button>
+            </div>
+
+            <div
+              class="shutdown-step border-2 border-outline-variant bg-surface-container-lowest p-4 relative transition-all duration-300"
+              id="step-3"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <span
+                  class="step-badge bg-outline-variant text-on-surface-variant px-2 py-1 font-label-caps text-[10px]"
+                  >PASO 03</span
+                >
+                <span
+                  class="step-icon material-symbols-outlined text-on-surface-variant"
+                  >water_damage</span
+                >
+              </div>
+              <h4 class="font-label-caps text-[16px] font-bold mb-2">
+                3. EVACUAR E INGRESAR AGUA
+              </h4>
+              <button
+                class="w-full py-2 bg-surface-variant text-on-surface border border-outline font-bold font-label-caps text-[12px] hover:bg-surface-container-high transition-all"
+                onclick="ejecutarPaso(3)"
+              >
+                EQUILIBRAR REFRIGERANTE
+              </button>
+            </div>
+
+            <div
+              class="shutdown-step border-2 border-outline-variant bg-surface-container-lowest p-4 relative transition-all duration-300"
+              id="step-4"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <span
+                  class="step-badge bg-outline-variant text-on-surface-variant px-2 py-1 font-label-caps text-[10px]"
+                  >PASO 04</span
+                >
+                <span
+                  class="step-icon material-symbols-outlined text-on-surface-variant"
+                  >power_off</span
+                >
+              </div>
+              <h4 class="font-label-caps text-[16px] font-bold mb-2">
+                4. APAGAR EL REACTOR
+              </h4>
+              <button
+                class="w-full py-2 bg-surface-variant text-on-surface border border-outline font-bold font-label-caps text-[12px] hover:bg-surface-container-high transition-all"
+                onclick="ejecutarPaso(4)"
+              >
+                APAGAR REACTOR
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="col-span-4 row-span-2 bg-surface-container-low border-2 border-error/50 p-4 flex flex-col"
+        >
+          <div class="flex items-center gap-2 mb-2">
+            <span class="material-symbols-outlined text-error"
+              >notifications_active</span
+            >
+            <span class="font-label-caps text-label-caps text-error font-bold"
+              >ALERTAS Y GUÍA DE ASISTENCIA</span
+            >
+          </div>
+          <div
+            id="contenedor-alerta"
+            class="flex-1 bg-error-container/20 border border-error/30 p-3 rounded overflow-y-auto strobe-critical"
+          >
+            <p
+              id="texto-alerta"
+              class="font-label-caps text-[12px] leading-relaxed font-bold"
+            >
+              ¡EVACUACIÓN DE EMERGENCY! EL NÚCLEO ESTÁ SUBIENDO DE TEMPERATURA.
+              INICIE EL PROTOCOLO DE SECUENCIA DE INMEDIATO.
+            </p>
+            <div
+              id="sugerencia-alerta"
+              class="mt-2 pt-2 border-t border-error/20 font-body-md text-[11px] text-on-surface opacity-90"
+            >
+              ACCIÓN RECOMENDADA: Presione el botón del 'PASO 01' para detener
+              las turbinas de generación eléctrica.
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="col-span-4 row-span-2 flex items-center justify-center bg-surface-container-lowest border border-outline-variant p-4"
+        >
+          <div class="relative group">
+            <div
+              class="scram-guard absolute inset-0 bg-surface-container-high border-2 border-outline-variant flex items-center justify-center z-20 cursor-pointer transition-all duration-500 hover:brightness-125"
+              id="scram-guard"
+              onclick="levantarProteccionGuard()"
+            >
+              <div class="text-center p-2">
+                <span
+                  class="material-symbols-outlined text-error text-3xl block mb-1"
+                  id="icono-candado-scram"
+                  >lock</span
+                >
+                <span
+                  class="font-label-caps text-[10px] text-error font-bold block"
+                  id="texto-guard-scram"
+                  >COMPUERTA DE SEGURIDAD</span
+                >
+                <span class="text-[9px] text-on-surface-variant block mt-1"
+                  >(Clic para levantar protección)</span
+                >
+              </div>
+            </div>
+            <button
+              onclick="ejecutarScramFinal()"
+              class="w-40 h-40 rounded-full bg-error-container border-[8px] border-on-error-container flex flex-col items-center justify-center shadow-[0_0_40px_rgba(147,0,10,0.4)] active:scale-95 transition-all"
+              id="scram-btn"
+            >
+              <span
+                class="font-display-xl text-on-error-container font-black text-2xl leading-none mb-1"
+                >SCRAM</span
+              >
+              <span
+                class="font-label-caps text-[8px] text-on-error-container/80 tracking-widest text-center px-2"
+                >5. DETENCIÓN TOTAL</span
+              >
+              <div
+                class="mt-2 w-12 h-1 bg-on-error-container/40 animate-pulse"
+              ></div>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div
+      id="modal-fin"
+      class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden p-4"
+    >
+      <div
+        class="bg-surface-container-high border-4 p-8 max-w-md w-full text-center rounded shadow-2xl"
+        id="modal-contenido"
+      >
+        <h2
+          id="modal-titulo"
+          class="font-headline-lg text-2xl uppercase tracking-tighter mb-4"
+        ></h2>
+        <p id="modal-descripcion" class="font-body-md text-on-surface mb-6"></p>
+        <button
+          onclick="reiniciarSimulacion()"
+          class="px-6 py-3 bg-primary text-on-primary font-bold font-label-caps rounded hover:opacity-90"
+        >
+          REINTENTAR SIMULACIÓN
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

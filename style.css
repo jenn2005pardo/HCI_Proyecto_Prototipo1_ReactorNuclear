@@ -1,0 +1,59 @@
+/* Configuraciones Especiales para Iconos y animaciones industriales */
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* Corte geométrico para simular una compuerta metálica física de protección */
+.scram-guard {
+  clip-path: polygon(
+    0% 15%,
+    15% 15%,
+    15% 0%,
+    85% 0%,
+    85% 15%,
+    100% 15%,
+    100% 85%,
+    85% 85%,
+    85% 100%,
+    15% 100%,
+    15% 85%,
+    0% 85%
+  );
+}
+
+/* Animación crítica intermitente para situaciones de alerta */
+.strobe-critical {
+  animation: strobe 1s infinite;
+}
+
+@keyframes strobe {
+  0%,
+  49% {
+    background-color: #93000a;
+    color: white;
+  }
+  50%,
+  100% {
+    background-color: transparent;
+    color: #ffb4ab;
+  }
+}
+
+/* Transición suave para simular llenado o vaciado hidráulico real */
+.liquid-fill {
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fondo con patrón de rejilla técnica e industrial */
+.industrial-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
